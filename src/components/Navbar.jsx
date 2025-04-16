@@ -28,6 +28,13 @@ const Navbar = () => {
               History
             </Button>
           </Link>
+
+          <Link to="/ask">
+            <Button variant="ghost" className="gap-2">
+              <History className="h-4 w-4" />
+              Ask Question
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>

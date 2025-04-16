@@ -6,6 +6,7 @@ import Documents from "./pages/Documents";
 import Chat from "./pages/Chat";
 import History from "./pages/History";
 import NotFound from "./pages/NotFound";
+import Ask from "./pages/Ask";
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
         <Route path="/documents" element={<Documents />} />
         <Route path="/chat/:docId" element={<Chat />} />
         <Route path="/history" element={<History />} />
+        <Route path="/ask" element={<Ask />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
