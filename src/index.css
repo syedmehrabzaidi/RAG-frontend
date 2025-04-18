@@ -96,6 +96,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen bg-gradient-to-br from-purple-500 via-purple-400 to-purple-600;
+    background-attachment: fixed;
   }
 }
