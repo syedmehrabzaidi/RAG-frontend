@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { FileText, MessageSquare, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { API_URL } from '@/config/api';
 
 const DocumentsPage = () => {
   const [documents, setDocuments] = useState([]);
@@ -11,7 +11,7 @@ const DocumentsPage = () => {
 
   const fetchDocuments = async () => {
     try {
-      const response = await fetch('http://0.0.0.0:8000/documents/');
+      const response = await fetch(`${API_URL}/documents/`);
       if (!response.ok) throw new Error("Failed to fetch documents");
       const data = await response.json();
       setDocuments(data);
@@ -27,7 +27,7 @@ const DocumentsPage = () => {
 
   const handleDelete = async (docId) => {
     try {
-      const response = await fetch(`http://0.0.0.0:8000/documents/${docId}`, {
+      const response = await fetch(`${API_URL}/documents/${docId}`, {
         method: 'DELETE',
       });
       

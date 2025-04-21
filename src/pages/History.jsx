@@ -1,8 +1,8 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { API_URL } from '@/config/api';
 
 const HistoryPage = () => {
   const [sessionId, setSessionId] = useState('');
@@ -23,7 +23,7 @@ const HistoryPage = () => {
 
   const fetchChatHistory = async () => {
     try {
-      const response = await fetch(`http://0.0.0.0:8000/chat-sessions/${sessionId}/history`);
+      const response = await fetch(`${API_URL}/chat-sessions/${sessionId}/history`);
       if (!response.ok) throw new Error("Failed to fetch chat history");
 
       const data = await response.json();
@@ -37,7 +37,7 @@ const HistoryPage = () => {
 
   const handleDeleteHistory = async () => {
     try {
-      const response = await fetch(`http://0.0.0.0:8000/chat-sessions-delete/${sessionId}`, {
+      const response = await fetch(`${API_URL}/chat-sessions-delete/${sessionId}`, {
         method: 'DELETE',
       });
       

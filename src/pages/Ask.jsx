@@ -1,8 +1,8 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Send, Bot, User } from "lucide-react";
 import { toast } from "sonner";
+import { API_URL } from '@/config/api';
 
 const Ask = () => {
   const [question, setQuestion] = useState('');
@@ -25,7 +25,7 @@ const Ask = () => {
     if (!question.trim()) return;
 
     try {
-      const response = await fetch('http://0.0.0.0:8000/query/', {
+      const response = await fetch(`${API_URL}/query/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

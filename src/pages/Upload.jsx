@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Upload as UploadIcon, FileText } from "lucide-react";
 import { toast } from "sonner";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { API_URL } from '@/config/api';
 
 const UploadPage = () => {
   const [files, setFiles] = useState([]);
@@ -37,7 +38,7 @@ const UploadPage = () => {
     }
 
     try {
-      const response = await fetch('http://0.0.0.0:8000/upload-pdfs/', {
+      const response = await fetch(`${API_URL}/upload-pdfs/`, {
         method: 'POST',
         body: formData,
       });

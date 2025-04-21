@@ -1,8 +1,8 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Send } from "lucide-react";
+import { API_URL } from '@/config/api';
 
 const Chat = () => {
   const { docId } = useParams();
@@ -49,7 +49,7 @@ const Chat = () => {
     if (!question.trim()) return;
 
     try {
-      const response = await fetch('http://0.0.0.0:8000/query/', {
+      const response = await fetch(`${API_URL}/query/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,4 +127,3 @@ const Chat = () => {
 };
 
 export default Chat;
-
