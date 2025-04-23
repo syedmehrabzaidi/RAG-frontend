@@ -1,7 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Upload, FileText, MessageSquare, History, LogOut } from "lucide-react";
+import { Upload, FileText, MessageSquare, History } from "lucide-react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 const Navbar = () => {
@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center">
           <Link to="/" className="font-bold text-xl mr-8 bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent">
-            PDF Chat
+            AI Chatbot with RAG
           </Link>
           
           <SignedIn>

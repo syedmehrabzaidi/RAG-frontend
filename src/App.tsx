@@ -15,6 +15,8 @@ const App = () => (
     <div className="min-h-screen bg-background">
       <Navbar />
       <Routes>
+        <Route path="/sign-in/*" element={<SignInPage />} />
+        
         <Route 
           path="/" 
           element={
@@ -23,6 +25,7 @@ const App = () => (
             </SignedIn>
           } 
         />
+        
         <Route 
           path="/upload" 
           element={
@@ -31,6 +34,7 @@ const App = () => (
             </SignedIn>
           } 
         />
+        
         <Route 
           path="/documents" 
           element={
@@ -39,6 +43,7 @@ const App = () => (
             </SignedIn>
           } 
         />
+        
         <Route 
           path="/chat/:docId" 
           element={
@@ -47,6 +52,7 @@ const App = () => (
             </SignedIn>
           } 
         />
+        
         <Route 
           path="/history" 
           element={
@@ -55,6 +61,7 @@ const App = () => (
             </SignedIn>
           } 
         />
+        
         <Route 
           path="/ask" 
           element={
@@ -63,8 +70,6 @@ const App = () => (
             </SignedIn>
           } 
         />
-        <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="*" element={<NotFound />} />
         
         {/* Redirect to sign-in for protected pages when user is not authenticated */}
         <Route 
@@ -73,6 +78,16 @@ const App = () => (
             <SignedOut>
               <Navigate to="/sign-in" replace />
             </SignedOut>
+          } 
+        />
+        
+        {/* 404 page for authenticated users */}
+        <Route 
+          path="*" 
+          element={
+            <SignedIn>
+              <NotFound />
+            </SignedIn>
           } 
         />
       </Routes>
